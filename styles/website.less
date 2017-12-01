@@ -1,0 +1,234 @@
+/
+* LESS for website */
+
+/* VARIABLES */
+@orange: #E87722;
+@blue: #00A3E0;
+@purple: #838DC8;
+@yellow: #F3E500;
+@green: #6CC24A;
+@white: #FFFFFF;
+@dark: #003a40;
+@light: #f1f4f5;
+@lighter: #f9f9f9;
+
+@headerHeight: 50px;
+
+/* HEADER */
+
+#header{
+background: @dark;
+color: @white;
+border-bottom: 1px;
+height: @headerHeight;
+}
+
+.book-summary, .book-body{
+top: @headerHeight;
+}
+
+.logo{
+float: left;
+height:100%;
+padding: 10px;
+img{
+height: 100%;
+width: auto;
+}
+}
+
+.orgvue-links{
+list-style: none;
+float: right;
+margin: 0;
+margin-right: 5px;
+li{
+float: left;
+margin-right: 5px;
+}
+li a{
+color: @white;
+padding: 8px 12px;
+border-radius: 3px;
+line-height: @headerHeight;
+&:hover{
+color: @orange;
+}
+}
+}
+
+
+
+/* SUMMARY */
+.book-summary{
+background: @lighter;
+}
+
+.book-summary ul.summary li a:hover{
+background: @light;
+text-decoration: none;
+}
+.book-summary ul.summary li.active>a{
+background: @orange;
+}
+.book-summary ul.summary li.active>a{
+color: @white;
+}
+
+.book-summary ul.summary li a,
+.book-summary ul.summary li span{
+color: @dark;
+}
+
+
+
+
+/* CONTENT */
+.markdown-section{
+color: @dark;
+}
+
+h1, h2, h3{
+color: @orange;
+}
+
+h4, h5, h6{
+color: @dark;
+}
+
+.markdown-section blockquote {
+border-left: 2px solid fade(@green, 40%);
+border: 2px solid fade(@green, 40%);
+border-radius: 10px;
+background-color: @white;
+padding: 10px 15px;
+text-indent: 0;
+margin: 1em 0;
+strong{
+color: @green;
+}
+ul li:before{
+color: @green;
+}
+}
+
+.markdown-section a{
+color: @blue;
+text-decoration: underline;
+&:hover{
+color: darken(@blue, 20%);
+}
+}
+/*.markdown-section a:after {
+content: " \f054";
+}*/
+
+
+// LISTS
+
+.page-wrapper ol {
+margin:0 0 1.5em;
+padding:0;
+counter-reset:item;
+}
+.page-wrapper ol>li {
+//margin: 0.5em 0;
+//padding:0 0 0 0em;
+//text-indent: 0em;
+padding: 0 0 0 1.5em;
+text-indent: -1.5em;
+list-style-type:none;
+counter-increment:item;
+img{
+//margin: 0.5em 0;
+}
+ol > li{
+&:before{
+content:counter(item, lower-roman) ".";
+}
+ol > li{
+&:before{
+content:counter(item, lower-alpha) ".";
+}
+}
+}
+}
+.page-wrapper ol>li:before {
+display:inline-block;
+width:1.5em;
+padding-right:0.5em;
+font-weight:bold;
+text-align:right;
+content:counter(item) ".";
+color: @blue;
+}
+
+.page-wrapper ul {
+list-style: none;
+padding:0;
+margin:0;
+}
+
+.page-wrapper ul li{
+//padding:0 0 0 0em;
+//text-indent: 0.75em;
+padding: 0 0 0 1.5em;
+text-indent: -1.2em;
+}
+
+.page-wrapper ul li:before {
+content: "● ";
+color: @blue;
+padding-right:0.25em;
+width:1.5em;
+}
+
+.page-wrapper p img{
+margin: 0.5em 2em;
+}
+
+.page-wrapper ol, .page-wrapper ul{
+li{
+margin: 0.5em;
+}
+p{
+text-indent: 2em;
+}
+img{
+margin:0.5em;
+}
+}
+
+
+
+
+//SYNTAX HIGHLIGHTING
+.markdown-section pre,
+.markdown-section code{
+border-radius: 5px;
+background: @light;
+border: 1px solid darken(@light, 10%);
+color: @blue;
+
+.book .book-body .page-wrapper .page-inner section.normal pre .hljs-string, .book .book-body .page-wrapper .page-inner section.normal code .hljs-string, .book .book-body .page-wrapper .page-inner section.normal pre .hljs-value, .book .book-body .page-wrapper .page-inner section.normal code .hljs-value, .book .book-body .page-wrapper .page-inner section.normal pre .hljs-inheritance, .book .book-body .page-wrapper .page-inner section.normal code .hljs-inheritance, .book .book-body .page-wrapper .page-inner section.normal pre .hljs-header, .book .book-body .page-wrapper .page-inner section.normal code .hljs-header, .book .book-body .page-wrapper .page-inner section.normal pre .hljs-addition, .book .book-body .page-wrapper .page-inner section.normal code .hljs-addition, .book .book-body .page-wrapper .page-inner section.normal pre .ruby .hljs-symbol, .book .book-body .page-wrapper .page-inner section.normal code .ruby .hljs-symbol, .book .book-body .page-wrapper .page-inner section.normal pre .xml .hljs-cdata, .book .book-body .page-wrapper .page-inner section.normal code .xml .hljs-cdata{
+color: @green !important;
+}
+}
+
+.markdown-section code{
+border: none;
+}
+
+
+/* SEARCH */
+#book-search-results .search-results .has-results .search-results-item {
+text-indent: 0;
+&:before{
+content: none;
+padding-right: 0em;
+width: 0em;
+}
+a{
+color: @orange;
+}
+}
